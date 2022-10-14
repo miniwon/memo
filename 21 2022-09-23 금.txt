@@ -1,0 +1,39 @@
+[09 월 23일]
+
+1. 접근지정자
+
+   private : 그 클래스 안에서만 접근 가능
+   public  : 모든 접근 허용
+   protected (애매해) : 해당 패키지와 다른 패키지인 경우는 자식 클래스만 허용
+   (default) : 해당 패키지에서만 접근 허용 (간단하게 걍 같은 폴더안.) 
+경우는 자식 클래스에만 허용 
+
+   private < default < protected < public
+
+2. 상속
+
+ [ 설계 관점 ]
+   -부모클래스 : 공통적인 부분
+   -자식클래스 : 고유의 기능 
+ [ 개발 관점 ]
+   -부모클래스 요소는 사용가능 
+   -부모클래스에 없는 요소는 추가해서 사용 
+   -부모클래스에 있는데, 변경해야 하는 경우 
+   ( 상속관계에서 동일한 메소드 - overriding )
+
+3. abstract: 미완성
+ - method: overriding의 강제성 -> 다형성
+ - class: method 중에 하나라도 abstract
+
+4. final: 변경 불가
+ - field: 값 변경 불가
+ - method: 오버라이딩 불가
+ - calss: 부모 클래스가 될 수 없다
+
+class MyMath extends Math {
+
+public void sin() {
+	// 더하기 연상
+
+
+

@@ -1,0 +1,308 @@
+깃과 깃허브
+git은 로컬의 컴퓨터
+
+Branch: 협업할 때 사용 - 기본 브랜치는 master <= GitHub
+ * 2년 전, GitHub의 기본 브랜치 이름이 변경됨: master ==> main
+
+*기본 Branch 이름을 Git, GitHub가 상호 호환되도록 설정
+ * Git과 GitHub는 다른 회사
+ <mian>		<main>
+
+Local 시스템의 버전 관리
+ - Git(TUI: Text User Interface, 모든 작동을 명령어로 관리, Linux, Unix)
+ - Source Tree(GUI: Graphic User Interface, 모든 명령어가 그래픽 지원, 클릭)
+
+kosmo@DESKTOP-Q7OO1QC MINGW64 ~
+로그온 계정@컴퓨터 이름 작업 디렉토리
+
+#현재 진입한 폴더의 전체 경로를 출력
+pwd
+
+/c/Users/kosmo 	<= 절대 경로: /로 시작
+
+# ~: 현재 로그온한 계정의 홈 폴더
+
+# 폴더 이동 명령어: . (현재 폴더), .. (상위 폴더)
+cd
+
+# 화면 지우기
+clear
+
+# 폴더의 내용 출력하기(dir <= 도스, 명령 프롬프트, ls(<=Linux) 명령어)
+ls 	<= 현재 위치한 폴더의 목록을 출력
+
+# 폴더 생성 명령어
+mkdir git 	<= git 폴더 생성
+
+# 절대 경로와 상대 경로
+ - 절대 경로: /
+ - 상대 경로: /가 없으면 상대 경로, 현재 위치한 폴더를 기준
+
+# 삭제 <주의>
+ - rmdir 폴더명	: 폴더 삭제, 비어 있는 폴더만 가능
+ - rm 파일명	: 파일 삭제 
+ - 파일명.확장자	: *를 쓰면 모든 파일 삭제
+
+# 현재 폴더의 모든 파일 삭제
+rm *.*
+
+# 비어 있는 파일 생성
+touch abc.txt
+
+# 이동 명령어: mv
+mv^이동할 파일^대상 폴더 			: 대상 폴더가 존재하는 경우 이동
+mv^이름 변경할 원본^변경할 이름(대상) 	: 대상 폴더가 존재하지 않는 경우 이름 변경 
+
+# rm: 파일 삭제
+옵션
+-r: 폴더 삭제(폴더 내에 존재하는 파일까지 한꺼번에 삭제)
+
+# 폴더의 모든 파일을 삭제
+rm -r 폴더명: 폴더 내의 모든 파일까지 한꺼번에 삭제
+
+# 현재 폴더의 모든 내용 삭제
+rm -r *
+
+# >: 리다이렉션, 출력을 저장( 출력 내용을 파일에 저장) <= 덮어씀
+# >>:  <= 이어서 저장
+
+# 명령어 &: 백그라운드 프로세스에서 실행
+
+# echo "화면에 출력할 내용": 화면에 내용을 출력
+
+# cat: 파일의 내용을 출력
+gat git.txt
+
+#grep: 필터링해서 출력
+
+# |: 명령어 연결
+
+cat -n git.txt | grep java
+
+# 파일 복사: cp <복사할 원본> <붙여넣을 대상 폴더>
+
+# 폴더 복사: cp -r <복사할 원본> <붙여넣을 대상 폴더>  <= 폴더 하위의 모든 파일까지 함께 복사
+
+# 숨김 파일, 숨김 폴더: 폴더나 파일 앞에 .을 붙이면 숨김 파일이나 숨김 폴더
+mkdir .yyy
+touch .aa.txt
+
+# 숨긴 파일, 숨긴 폴더 보기
+ls -a  	<== all: 모든 파일, 숨어 있는 파일까지 모두
+
+# 폴더나 파일의 자세한 정보 출력(Permission(권한), 소유주, 그룹, 날짜, 용량
+ls -l
+ls -la: 자세하게, 모든 파일까지 출력
+
+# VI Editor: 윈도우의 메모장과 같은 기능, 파일의 내용을 수정, 저장
+ - 명령 모드: 키보드의 모든 키가 명령어로 작동됨 <처음 vi를 실행하면 명령 모드>
+	: <= 라인 인풋 모드로 이동
+
+	- 명령 모드에서 입력 모드로의 전환
+	a	: 커서 뒤에서 입력 모드로 전환
+	i	: 커서 앞에서 입력 모드로 전환
+	o	: 커서 아래 라인에서 입력 모드로 전환
+	A	: 라인의 마지막에서 입력 모드로 전환
+	I	: 라인의 처음에서 입력 모드로 전환
+	O	: 커서 윗 라인에서 입력 모드로 전환
+
+	1G	: 1번 라인으로 이동
+	10G	: 10번 라인으로 이동
+	GG	: 마지막 라인으로 이동
+
+	/	: 검색, n: 다음 검색 결과 위치로 이동
+
+	yy	: 커서 위치의 한 라인 전체 복사
+	5y	: 커서 위치의 아래로 5 라인 복사
+	p	: 붙여넣기
+
+ - 입력 모드: 키보드의 키가 <<입력>>
+	ESC: <명령 모드로 전환>
+
+ - 라인 인풋 모드: VI를 저장하고 빠져나옴, 각종 설정 모드
+	ESC: <명령 모드로 전환>
+
+	:q <= VI를 저장하지 않고 종료
+	:q! <= VI를 저장하지 않고 종료(! 강제로 빠져나옴)
+	:wq <= VI를 저장하고 종료
+	:set nu <= vi에 라인 번호를 넣어라
+	:set nonu <= vi에 라인 번호를 지워라
+
+#이전에 작업한 경로로 이동: -
+cd -
+
+
+
+Windows OS의 경로: C:\Users\kosmo\eclipse-workspace\kosmo
+Linux OS의 경로	 : /C/Users/kosmo/eclipse-workspace/kosmo
+=================================================
+토발츠 리누즈: Linux OS, Git 창시자
+Git: Local 시스템의 버전 관리 <==========> GitHub에 Local에 개발된 소스 파일을 원격의 Repository(저장소)에 전송
+
+#mkdir java_proj 		//폴더 생성
+# cd java_proj		//생성한 폴더로 이동, 개발된 소스파일을 복사, readme.md 생성
+
+==================================================
+1. git init: 해당 폴더를 git이 관리할 수 있도록 초기화 [.git] 폴더가 생성된다
+	 Local Repository : Git이 관리하는 저장소
+
+========기본 세팅 설정: Git 설치 후 한 번만 세팅(사용자 이름, email 주소 등록)================
+2. git config --global user.name "자신의 이름" 		<=사용자 이름, 누가 commit했는지 알려 줌
+3. git config --global user.email "이메일 주소"		<=사용자 이메일 주소, 누가 commit했는지 알려 줌
+====================================================
+4. git add . 		<= 현재 폴더의 모든 파일을 Stage 영역에 등록, Stage 파일에 등록된 파일만 commit이 된다
+				commit이 되어야 GitHub에 업로드할 수 있다
+
+5. git commit -m "커밋 설명" <== 커밋시키는 시점에 백업본을 만들어 두고 이 시점으로 되돌릴 수 있다
+	주의: Stage 영역에 등록된 파일만 commit할 수 있다
+	       GitHub에 commit된 정보만 올릴 수 있다
+				- 프로그램에서 하나의 기능이 완성되면 commit
+				- 예)"프로젝트 v1.0" "프로젝트 v2.0" "프로젝트 v3.0"
+
+6. git remote add origin "원격의 GitHub의 Repository 주소"
+		//origin 변수에 "원격의 GitHub의 Repository 주소" 등록
+
+7. git push origin main
+		//Loval Repository의 파일을 원격의 GirHub Repository에 업로드(push)
+
+=====================================================
+git status 	<=git의 상태를 출력하는 명령어, 작업 디렉토리, stage 영역의 내용
+
+git log		<=commit된 정보의 내용을 출력
+
+=====================================================
+
+git add aa.txt	<=aa.txt 파일을 Stage 영역에 등록
+git status		<=git의 상태를 확인
+git rm --cached aa.txt <= Stage 영역에 등록된 파일을 제거
+git rm -r --cached *	<= Stage 영역에 등록된 모든 파일을 Working Directory로 이동
+
+=Remote: Repository 생성==================================================
+#github.com	<<계정 생성>>
+
+1. Repository 생성: Project 단위로 생성(java_proj)
+	github.com/new
+
+ - Repository 이름, Public	<=두 개만 설정 후 생성
+	https://github.com/miniwon/java_proj.git		<=원격 레파지토리 주소
+
+ - public: 공개된 레파지토리(무료)	협업(무료)
+ - private: 비공개된 레파지토리(무료)	협업(유료)
+
+ - README.md	<= 
+
+============================================================
+1. README.md 파일 생성
+2. JAVA의 kosmo 프로젝트 src 폴더를 복사해서 Local Repository 폴더로 복사
+3. git으로 초기화
+4. 작업 폴더의 내용을 stage 영역으로 등록
+5. stage 영역을 commit
+6. 원격 저장소를 등록함
+7. 커밋된 데이터를 원격으로 push
+
+Local Repository: java_myproj
+Remote Repository: java_myproj
+
+===========================================================2022-09-05
+Host OS<<학원 시스템>> Git 설치
+ - 1. 기본 설정 <<Git 설치 후 1번 세팅>>
+	git config --global user.name "사용자 이름"
+	git config --global user.email "이메일 주소"
+
+ - 2. GitHub에 원격 Repository 생성
+	https://github.com/miniwon/java_proj03.git
+
+ - 3. Local Repository 생성 => GitHub로 Push
+	cd /git
+	mkdir java_proj03		//Local Repasitory 생성(Remote Repository와 동일한 이름으로 생성)
+	cd java_proj03
+	git init 			//java_proj03 폴더를 Git에서 관리하도록 초기화( .git)
+	touch README.md		//파일 생성
+	echo "# JAVA Project03" >> README.md 	//README.md: 원격 레파지토리의 최초 실행 문서
+	echo "## - 하위 내용 1" >> README.md
+	echo "## - 하위 내용 2" >> README.md
+
+	Windows 경로: C:\Users\kosmo\eclipse-workspace\kosmo\src
+	Linux 경로     : /C/Users/kosmo/eclipse-workspace/kosmo/src
+	cp -r /C/Users/kosmo/eclipse-workspace/kosmo/src .		//.은 현재 폴더
+
+	git stauts		//git의 현재 상태를 확인(Working, Stage, Loval Repository) 영역의 파일을 확인
+	git log		//git의 커밋된 log를 확인, 커밋된 정보만 출력
+
+	git add .		//현재 폴더의 모든 파일을 Stage 영역에 등록
+	git commit -m "커밋 설명"	//Stage의 모든 파일을 Commit(Stage 영역의 모든 파일을 백업 시점)
+				//Commit은 프로젝트 내에서 "하나의 기능이 환성되면 적용"
+				//Commit된 상태로 되돌릴 수 있다 <checkout>
+
+	//원격 Repository에 등록(Commit된 정보만 원격 Repository에 올릴 수 있다)
+	//원격 Repositroy 주소를 등록
+
+	git remote add origin "원격 Repository 주소" https://github.com/miniwon/java_proj.git
+			//origin 변수에 원격 Repository 주소를 저장
+	git push origin main 	//Local Repository에 Commit된 파일을 원격 Repository에 업git로드(main 브랜치에 업로드)
+	 //Local Repository(Commit) == push ==> Remote Repository로 업로드
+
+Guest OS(VM Win10)<<집 시스템>> Git 설치
+ - 1. 기본 설정 <<Git 설치 후 1번 세팅>>
+	git config --global user.name "사용자 이름"
+	git config --global user.email "이메일 주소"
+
+ - 2. git clone "원격 레파지토리 주소"		//원격 Repository의 전체 파일을 Local Repository로 통째로 복사
+	//처음 한 번만 실행. 다음부터는 Pull을 사용해서 원격 Repasitory의 내용을 Local로 가져옴
+
+	cd /c/git
+	git clone "https://github.com/miniwon/java_proj03.git"
+
+ - 3. git pull origin main			//GitHub의 내용을 Local Repository로 복사
+	//push를 할 때 오류가 발생될 수 있다.
+	//항상 pull을 실행한 후 push
+	//GitHub의 내용이 수정되면 pull을 먼저 실행 후 push
+
+GitHub에서 Remote Repository를 생성하면서 README.md 파일을 생성한 경우
+	원격 Repository에 .git <=원격에서 초기화가 되어 있으므로 로컬 폴더를 초기화하면 안 된다
+
+ 1. Local에서 Clone을 먼저 적용한 후 push해야 한다
+.gitignore 파일: Local Project에 원하지 않는 파일을 원격 레파지토리에 업로드되지 않도록 설정
+ - git의 최상위 디렉토리에 존재해야 한다
+ - 백업, 컴파일된 파일(*.class) .... .log(로그 파일).. 설정 파일.. 원격 저장소에는 업로드되지 않도록 설정
+ - gitignore.io <=사이트(운영체제(Windows), IDE(Eclips), 언어(Java)) .gitignore파일을 자동으로 생성
+
+
+git checkout 커밋된 16진수		<= 해당 커밋된 위치로 이동
+
+git log				<=모든 커밋된 정보를 출력
+git checkout be754c		<=HEAD를 커밋된 시점으로 이동
+git checkout -			<=이전 커밋된 시점으로 이동
+
+=========================================================
+GUI를 사용해서 Git & GitHub 관리	<=Source Tree
+
+소스트리 다운로드: https://www.sourcetreeapp.com/
+
+	https://bitbucket.org/ <=계정 생성 후 로그인
+
+bitbucket (클릭) - 로그인 후 등록 완료
+
+
+
+===========================================2022-09-06
+
+팁
+
+교재의 저자 GitHub
+https://github.com/kimdh-hyw
+
+Source Tree의 3가지 메뉴
+ 1. Clone		: Remote Repository(GitHub)를 Local로 복사 사용
+ 2. Add		: Local Repository 추가 (.git이 존재하는 경우)
+ 3. Create	: Local or Remote Repository 생성 (이 동작으로 .git을 생성)
+
+
+
+
+
+
+
+
+
+

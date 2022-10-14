@@ -1,0 +1,84 @@
+1. 자바 개발 환경 설정하기
+www.oracle.com	< 회원 가입 후 JDK 다운로드 가능
+JAVA: SUN 무료 > Oracle 유료
+	LTS: 3년 정도 기술 지원 버전
+	1.8(무료), 11, 17
+
+ 1) JDK 설치(JDK 11)
+ 2) 환경 설정(JAVA_HOME, path)
+	- JAVA_HOME: JAVA(JDK)가 설치된 위치를 알려 주는 환경 변수
+		C:\Program Files\jdk-11.0.13.8-hotspot
+	- path: path 변수에 등록된 경로의 명령어는 명령프롬프트 어느 경로에서나 실행 가능
+ 3) 이클립스 설치(IDE: 통합 개발 환경)
+     IDE(Integrated Development Environment): 문법 체크, 컴파일(빌드(build), 디버깅, 테스트, 패키징..)
+	- 이클립스: JAVA 개발 시 무료로 사용
+		https://www.eclipse.org/downloads/
+	- 인텔리제이: JAVA 개발 시 유료(월 3만 원, 생산성이 좋은 툴)
+	- VS Code: Front End 개발 시에 주로 사용(HTML, CSS, JavaScript, JQuery)
+
+환경 변수 중 path 변수에서 설정이 되어 있기 때문에 Windows의 모든 경로에서 사용 가능
+Program Files		> 64비트
+Program Files (x86)		> 32비트
+
+java.exe		: 바이트 코드를 실행
+javac.exe 		: 원본 소스를 컴파일하는 컴파일러
+
+컴파일: 프로그램을 기계어(0, 1)로 변환
+c, c++: 기계어로 바로 변환 - 완전한 컴파일
+	플랫폼마다(하드웨어 플랫폼+운영체제 플랫폼) 컴파일 필요
+
+java, c#: 중간 언어(바이트 코드)로 컴파일
+	JVM(자바 가상 기계)에 의해 완전한 컴파일이 이루어진다
+	플랫폼에 종속적이지 않다 > 자바 가상 기계가 설치된 모든 컴퓨터에서 실행 가능
+
+2. 명령프롬프트 명령어
+ - cls	: 화면 지우기
+ - dir	: 현재 폴더의 목록 보기(파일, 폴더<dir>)
+ - cd	: 폴더 이동
+ - mkdir	: 폴더 생성
+ - .	: 현재 폴더
+ - ..	: 상위 폴더
+ - 
+
+3. Hello World
+java 클래스 이름의 첫 글자는 무조건 대문자
+파일명 역시 클래스 이름과 동일
+
+public class Test{					<<클래스 선언
+
+	public static void main(String[] args) {		<<메인 메소드
+
+		System.out.println("Hello World");	<<헬로 월드라는 문자열을 출력하라는 프로그래밍
+
+	}
+
+}
+
+
+4. JAVA 실습
+ 1) 프로젝트 생성	: 전체 프로그램의 소스를 관리하는 단위
+ 2) 패키지 생성	: 소스 파일(클래스 파일)을 관리하는 폴더
+	- .을 사용해서 하위 패키지 생성
+	- 동일한 파일을 다른 패키지에 저장
+	- 프로젝트 개발 시 동일한 파일 이름을 다른 패키지에 생성 가능
+	- 3 단계까지 설정 가능
+ 3) 클래스 생성	: JAVA의 원본 소스 파일 + 컴파일된 파일
+
+JDK	: (개발자) JAVA 개발에 필요한 모든 프로그램의 묶음 <컴파일러 포함>
+JRE	: (서버) JAVA 작동에 필요한 프로그램의 묶음 <컴파일러 미포함>
+JDK에 JRE가 포함됨
+
+5. 인코딩 변경: 한글, 일본어, 중국어..
+	영어, 숫자, 특수 문자는 ASCII 형식으로 저장되기 때문에 인코딩 필요 X
+	UTF-8	: 3byte	< Mac OS, GitHub, 각종 서버의 인코딩
+	MS-949	: 2byte	< Windows OS 기본 세팅
+
+ 1) workspace level 적용	: UTF-8, 새로이 생성되는 project는 모두 UTF-8
+ 2) project level 적용
+ 3) file level 적용
+
+프로젝트 폴더(test01)
+ - src: JAVA 소스 				<*.java>
+ - bin: JAVA 바이너리 파일(컴파일된 파일) 	<*.class>
+
+
