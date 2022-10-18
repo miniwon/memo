@@ -1,0 +1,14 @@
+[10월 17일]
+
+* 요소 찾을 때
+	- id
+	- class
+	- name
+
+* 요소의 종류
+	- block	: <div>
+	- inline	: <span>
+
+* iframe
+	- parent
+
