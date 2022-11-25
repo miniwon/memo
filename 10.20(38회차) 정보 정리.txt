@@ -1,0 +1,139 @@
+window.onload = function(){} -> 전체로드 기다림
+
+
+dom - > 메모리에 올림
+
+createElement -> 메모리만듦
+
+
+4_1-7
+map : 키와 값으로 관리하는 객체
+
+// for ... in   -> 인덱스 추출
+// for ... of   -> 요소 추출
+
+
+for(var k of m){
+// 	document.write(k + '<br/>')
+	document.write(k[0] + '/' + k[1] + '<br/>')
+} -> 바로 값 지정 가능, 배열화 해서 저장
+ 
+for(var [k,v] of m){
+	document.write(k+ '/' + v+ '<br/>')
+}  -> 배열 분할 저장
+
+map 에서 for of 안먹힘
+
+set : 중복 값 안들어감
+
+set 에서 for of 안먹힘
+
+로또 문제 
+set
+parseInt(Math.random * 45) +1
+
+
+
+const nA = Array.from(lotto);
+nA.sort(function(a,b){
+	return a-b
+})
+for (var num of nA){
+	document.write(num + '/')
+}
+
+=> 정렬 해주려면 배열화 한다음 정렬
+
+4_1 -8  Date
+// 2025-05-12
+var day = new Date()
+day.setFullYear(2025)
+day.setMonth(5-1);		// 중요!  month -1!
+day.setDate(12)
+document.writeln(day)
+
+4_1 - 8(2) Date 연습 
+var sDate = new Date(s);
+ var eDate = new Date(e);
+var diff = eDate - sDate; // 밀리세컨드alert(diff)			
+var dif2 = Math.ceil(diff / (1000*60*60)) // 초  : 1000ms, 분 : 60s, 시간 : 60m
+alert(dif2)
+
+
+4_1 - 9 RegExp 
+해당 값 출력
+
+var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/gi;
+var str = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+str += ' 또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+var result = str.match(p)
+for(var r of result){
+	document.write(r+'<br/>')
+}
+
+match : 같은 것
+
+var one = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+var two= '또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+document.write(one.search(p) + '<hr/>')		//17
+document.write(two.search(p) + '<hr/>')		//18
+
+search : 해당 인덱스 -> 해당 자리 값
+공백 -1
+
+
+4_1 - 10 eval
+var str = "alert('ㅎㅇ')"
+//alert(str)	// alert('ㅎㅇ')
+eval(str)		// ㅎㅇ
+
+eval -> alert를 자동으로 인식해서 ㅎㅇ 자동 출력
+
+
+4_4 -1 form_var
+
+for(let i = 0; i<4; i++){
+	myForm['txt'+i].value = 'data-'+i
+}
+
+4_4 - 2 select_1
+frm.total.value => 값 바로 적용
+
+4_4 - 2 select_2
+size -> 콤보박스 크기 지정
+
+input태그 값 -> value
+
+태그와 태그 사이 : text
+
+태그 위아래로 이동
+
+
+4_4 -3 cal_input 
+오늘 요일 계산 + 버튼 기능화
+
+4_4 - 3 cal select
+모니터청소
+윤년
+
+
+4_4 -4 form_check
+name = > 서버까지 데이터 가져가려면 필요함
+
+required -> 기본키 역할, 필수입력사항
+
+input pattern="[A-Za-z]{3,}" -> 입력 제한
+
+
+
+
+
+
+
+
+
+
+
+

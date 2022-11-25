@@ -1,0 +1,8 @@
+HTML	: 파일을 받아 와서 브라우저에서 보여 주는 것
+	 - DB 연동이 불가능
+JSP	: 서버 컴퓨터에서 실행을 다 한 후 결과만 클라이언트에게 전송
+	 - DB 연동이 가능
+
+	> 개발자는 HTML 파일을 받으면 JSP로 변경해야 한다
+
+C:\Users\kosmo\web\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\work\Catalina\localhost\JSP\org\apache\jsp

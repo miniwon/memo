@@ -1,0 +1,20 @@
+[10월 31일 월요일]
+
+- request / response 역할
+
+- 쿠키 / 세션
+
+- beans
+
+* redirect와 forward 차이점
+
+자바 클래스를 웹에서는 빈즈라고 부른다
+자바의 method	: 함수
+웹의 method	: 전송 방식
+
+method=POST인 경우
+한글 인코딩 입력
+
+request 객체	: 클라이언트 → 서버
+response 객체	: 서버 → 클라이언트
+

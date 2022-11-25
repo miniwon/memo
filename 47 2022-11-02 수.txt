@@ -1,0 +1,2 @@
+1. form의 속성method="post"일 경우 한글 처리
+request.setCharacterEncoding("utf-8");
